@@ -66,7 +66,14 @@ const storage = multer.diskStorage({
     try {
       const files = fs.readdirSync(folder);
       for (const fileToDelete of files) {
-        fs.unlinkSync(path.join(folder, fileToDelete));
+        if (
+          file.fieldname === "profile_image" &&
+          fileToDelete.startsWith(`profileImage-${req.user._id}`)
+        ) {
+          fs.unlinkSync(path.join(folder, fileToDelete));
+        } else if (file.fieldname !== "profile_image") {
+          fs.unlinkSync(path.join(folder, fileToDelete));
+        }
       }
     } catch (err) {
       console.error(err);
