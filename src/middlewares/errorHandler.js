@@ -13,7 +13,7 @@ export default (error, req, res, next) => {
         .send({ status: error.status, response: error.response });
       break;
     default:
-      console.log(error)
+      
       res.send({ status: "error", error: "Unhandled error" });
   }
 };
