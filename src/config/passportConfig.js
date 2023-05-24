@@ -53,10 +53,14 @@ const initializePassport = () => {
           };
           const result = await userController.createUser(newUser);
           result.token = generateToken(result);
-          const redirectUrl = `${process.env.FRONT_DOMAIN}/loggedin?token=${user.token}`;
-          return done(null, { ...user._doc, token: user.token, redirectUrl });
+          const redirectUrl = `${process.env.FRONT_DOMAIN}/loggedin?token=${result.token}`;
+          return done(null, {
+            ...result._doc,
+            token: result.token,
+            redirectUrl,
+          });
         } catch (error) {
-          return done("error to login with github" + error);
+          return done("error to login with Google" + error);
         }
       }
     )
@@ -98,7 +102,7 @@ const initializePassport = () => {
             redirectUrl,
           });
         } catch (error) {
-          return done("error to login with github" + error);
+          return done("error to login with GitHub" + error);
         }
       }
     )
