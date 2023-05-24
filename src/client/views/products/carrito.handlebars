@@ -1,0 +1,29 @@
+
+{{#if traerProductos}}
+<div class="wrapperCarrito">
+    <div class="contenedorCarrito">
+        <h4>Articulos en carrito:</h4>
+        {{#each traerProductos}}
+        <div class="cardCarrito" id="{{this._id}}" target="_blank">
+            <div class="imagenCarrito">
+                <img src="{{this.thumbnail}}" alt="{{this.title}}">
+            </div>
+            <div class="informacionCard">
+                <h3 class="tituloCardCarrito">{{this.title}}</h3>
+                <div class="eliminarObjeto" title="Eliminar objeto"><span>X</span></div>
+                <div class="datosImportantes">
+                    <h5>Stock={{this.stock}}</h5>
+                    <h5>Precio unitario=${{this.price}}</h5>
+                    <h5 class="cambiarCantidad">Cantidad= <div class="cambiarCantidad disminuir">▼</div> {{this.quantity}} <div class="cambiarCantidad aumentar">▲</div></h5>
+                    <a class="linkCard" target="_blank" href="/products/{{this._id}}">Ver producto</a>
+                </div>
+                <div class="precioTotal">${{this.totalPrice}}</div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="footerCarrito"></div>
+</div>
+{{else}}
+<h5>{{error}}</h5>
+{{/if}}

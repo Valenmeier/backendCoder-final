@@ -1,0 +1,51 @@
+
+<div class="contenedorListaDinamica listaEstaticaContainer">
+    {{#if data}}
+    <div class="contenedorListas">
+        <h1 class="tituloLista">Lista de productos estaticos:</h1>
+
+        <div class="contenedorDeProductos">
+            {{#each data}}
+            <a href="products/{{this._id}}" class="card">
+                <h3>{{this.title}}</h3>
+                <div class="imagenCard">
+                    <img src="{{this.thumbnail}}" alt="{{this.title}}" srcset="">
+                </div>
+                <div class="tituloCard">
+                    <h3>{{this.title}}</h3>
+                </div>
+                <div class="cardHover">
+                    <div class="cardHoverTitle">
+                        <h3>{{this.title}}</h3>
+                    </div>
+                    <div class="cardHoverDescription">
+                        <h3>Descripción:</h3>
+                        <p> {{this.description}}</p>
+                    </div>
+                    <div class="cardHoverPrice">
+                        <div class="stockIdPrice">
+                            <h3>Price = ${{this.price}}</h3>
+                            <h3>Stock= {{this.stock}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+            <div class="botonesPagina">
+                {{#if prevLink}}
+                <a href="{{firstLink}}"><<</a>
+                <a href="{{prevLink}}" class="flechaPagina"><</a>
+                {{/if}}
+                <span href="">{{page}}</span>
+                {{#if nextLink}}
+                <a href="{{nextLink}}"flechaPagina>></a>
+                <a href="{{ultimateLink}}">>></a>
+                {{/if}}
+            </div>
+        </div>
+
+    </div>
+    {{else}}
+    <h4>{{mensaje}}</h4>
+    {{/if}}
+</div>

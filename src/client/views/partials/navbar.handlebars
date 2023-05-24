@@ -1,0 +1,17 @@
+<nav class="navbarGeneral">
+    <img src="/images/logoSinFondo.png" alt="" srcset="">
+    <ul class="menuNavbar">
+      {{#if admin}}
+      <li><a href="/admin">admin</a></li>
+      {{/if}}
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/products">Productos</a></li>
+      <li><a href="/realtimeproducts">Productos en tiempo real</a></li>
+      <li><a href="/chat">Chat</a></li>
+      {{#if activateSession}}
+      <li><a href="/session/logout">Cerrar sesion</a></li>
+      {{else}}
+      <li><a href="/session/login">Iniciar sesion</a></li>
+      {{/if}}
+    </ul>
+</nav>

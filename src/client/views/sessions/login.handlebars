@@ -1,0 +1,18 @@
+
+<div class="loginContainer">
+    <form action="/session/login" method="post">
+        <input class="requisitos" name="email" type="email" placeholder="Email" required>
+        <input class="requisitos contraseña" name="password" type="password" autocomplete="on" placeholder="Contraseña " required>
+        <div class="mostrarClave">
+            <button class="mostrarContraseña" type="button">Mostrar Contraseña </button>
+        </div>
+        {{#if error}}
+        <h4 class="error">{{error}}</h4>
+        {{/if}}
+        <button class="confirmarIngreso" type="submit">Ingresar </button>
+    </form>
+    <a href="/session/register">¿Aún no tienes cuenta? Registrate.</a>
+
+    <h3 class="googleOgithub">O inicia sesion con <a href="/session/github">Github</a> - <a href="/session/google">Google</a></h3>
+    <script src="/js/login.js"></script>
+</div>

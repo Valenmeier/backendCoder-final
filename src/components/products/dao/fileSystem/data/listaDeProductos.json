@@ -1,0 +1,108 @@
+[
+  {
+    "_id": "63bf7f82471cd783eb2e6444",
+    "title": "Buzo pro gamer",
+    "description": "Para no pasar frio",
+    "code": 250,
+    "price": 400,
+    "stock": 40,
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_705274-MLA45550150682_042021-O.jpg",
+    "__v": 0,
+    "status": true,
+    "id": "63bf7f82471cd783eb2e6444"
+  },
+  {
+    "_id": "63c567575057fb71ed98cefb",
+    "title": "Polito",
+    "description": "Juguete de Accion",
+    "code": 1234,
+    "price": 199,
+    "status": true,
+    "stock": 4,
+    "thumbnail": "https://www.poolortega.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fxha4afu1%2Fproduction%2Fff0f7d9f6f224b0f9a3fc4cbd5026d325bbc9294-800x800.jpg&w=128&q=75",
+    "__v": 0,
+    "id": "63c567575057fb71ed98cefb"
+  },
+  {
+    "_id": "63c6c94b97eacf3a933db505",
+    "title": "Cartas pokemón",
+    "description": "Pokémon TCG: Sword & Shield: Astral Radiance",
+    "code": 718,
+    "price": 200,
+    "stock": 20,
+    "thumbnail": "https://m.media-amazon.com/images/I/71Fd2W1uAOL._AC_SL1500_.jpg",
+    "__v": 0,
+    "status": true,
+    "id": "63c6c94b97eacf3a933db505"
+  },
+  {
+    "_id": "63c6cea097eacf3a933db50a",
+    "title": "Figura dragonite",
+    "description": "DRAGONITE PPAP STUDIO",
+    "code": 585628,
+    "price": 2000,
+    "stock": 10,
+    "thumbnail": "https://www.animefreaks.es/1459-large_default/dragonite-ppap-studio.jpg",
+    "__v": 0,
+    "status": true,
+    "id": "63c6cea097eacf3a933db50a"
+  },
+  {
+    "_id": "63c6d21997eacf3a933db513",
+    "title": "Figura pikazoro",
+    "description": "epica figura de acción",
+    "code": 5878,
+    "price": 400,
+    "stock": 100,
+    "thumbnail": "https://m.media-amazon.com/images/I/71BdWf20R3L._AC_SL1500_.jpg",
+    "__v": 0,
+    "status": true,
+    "id": "63c6d21997eacf3a933db513"
+  },
+  {
+    "_id": "63c6d2ee97eacf3a933db518",
+    "title": "Figura kid buu",
+    "description": "epica figura de acción",
+    "code": 852878,
+    "price": 500,
+    "stock": 15,
+    "thumbnail": "https://m.media-amazon.com/images/I/51Wxd0ei6UL._AC_SL1429_.jpg",
+    "__v": 0,
+    "status": true,
+    "id": "63c6d2ee97eacf3a933db518"
+  },
+  {
+    "_id": "63c6d48097eacf3a933db525",
+    "title": "Figura Raphael",
+    "description": "epica figura de acción",
+    "code": 23178,
+    "price": 200,
+    "status": true,
+    "stock": 41,
+    "thumbnail": "https://www.banpresto.es/wp-content/uploads/2022/09/bp18703_concaja.jpg",
+    "__v": 0,
+    "id": "63c6d48097eacf3a933db525"
+  },
+  {
+    "_id": "63c6d5b897eacf3a933db53d",
+    "title": "Figura Rimuru",
+    "description": "epica figura de acción",
+    "code": 2312748,
+    "price": 800,
+    "status": true,
+    "stock": 47,
+    "thumbnail": "https://www.banpresto.es/wp-content/uploads/2022/11/19791.jpg",
+    "__v": 0,
+    "id": "63c6d5b897eacf3a933db53d"
+  },
+  {
+    "id": "6408a2c2b518e04b2c105626",
+    "title": "buzo super megaaa fachero parte 2",
+    "description": "Fachero,no?",
+    "code": 218,
+    "price": 500,
+    "status": true,
+    "stock": 450,
+    "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/268/672/products/canguro-sharingan-gris1-1393ed335526212a8416241131410106-1024-1024.jpg"
+  }
+]

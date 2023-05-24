@@ -1,0 +1,27 @@
+
+<div class="registrerContainer">
+    <div class="fondoForm">
+        <form id="registerForm" action="/session/createUser"  method="post">
+        <div>
+            <input class="requisitos" name="first_name" type="text" placeholder="Nombre" required>
+            <input class="requisitos" name="age" type="number" placeholder="edad" min="1" max="130" required>
+            <input class="requisitos" name="user" type="text" placeholder="Nombre de usuario" required>
+            <input class="requisitos clave" type="password" placeholder="Confirma la contraseña" required>  
+        </div>
+        <div>
+            <input class="requisitos" name="last_name" type="text" placeholder="Apellido" required>
+            <input class="requisitos" name="email" type="email" placeholder="Email" required>
+            <input class="requisitos clave" name="password" type="password" placeholder="Contraseña" required>
+            <div class="mostrarClave">
+                <button class="mostrarContraseña" type="button">Mostrar Contraseñas </button>
+            </div>
+        </div>
+    </form>
+    <span class="avisoContraseñas">⚠⚠⚠ Las contraseñas no coinciden ⚠⚠⚠</span>
+    {{#if error}}
+    <span class="error">{{error}}</span>
+    {{/if}}
+    <button form="registerForm" class="confirmarIngreso" type="submit">Crear usuario </button>
+    </div>
+    <script src="/js/confirmarContraseña.js"></script>
+</div>

@@ -1,0 +1,27 @@
+<div class="chatWrapper">
+    <div class="contenedorMsg">
+        <div class="cabecera perfilChat"></div>
+        <div class="contenedorChats">
+        </div>
+        <div class="vistaMsg">
+            <div class="cabecera"></div>
+            <div class="chatMsg">
+                <div class="contenedorFlexibleMensajes">
+                </div>
+            </div>
+            <div class="barraMsg">
+                <form class="contenedorEnviarMensajes" action="">
+                    <textarea class="escribirMsg" placeholder="Ingrese su mensaje"></textarea>
+                    <button type="submit" class="enviarMensaje">
+                        <img src="./images/enviarMsg.png" alt="sendMessage">
+                    </button>
+                </form>
+            </div>
+            <div class="capaMsg"></div>
+        </div>
+    </div>
+    <div class="capaWrapper"></div>
+</div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./js/chatSocket.js"></script>

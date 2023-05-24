@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contenedorListaDinamica {
+  width: 100vw;
+  height: 90vh;
+  background: linear-gradient(63deg, #999 23%, transparent 23%) 7px 0,
+    linear-gradient(63deg, transparent 74%, #999 78%),
+    linear-gradient(63deg, transparent 34%, #999 38%, #999 58%, transparent 62%),
+    #444;
+  background-size: 16px 48px;
+  position: relative;
+}
+.listaEstaticaContainer {
+  background: linear-gradient(135deg, #79a7d3 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, #79a7d3 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, #79a7d3 25%, transparent 25%),
+    linear-gradient(45deg, #79a7d3 25%, transparent 25%);
+  background-size: 100px 100px;
+  background-color: #8a307f;
+}
+.contenedorListas {
+  width: 100vw;
+  min-height: 90vh;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tituloLista {
+  color: #fff;
+  font-size: 5vw;
+  text-shadow: 0.5vw 0.5vw 0.5vw #000;
+}
+.contenedorDeProductos {
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card {
+  width: 20vw;
+  height: 55vh;
+  background-color: #fff;
+  overflow: hidden;
+  margin: 2.5vw;
+  border-radius: 0.6vw;
+  display: grid;
+  grid-template-rows: 85% 15%;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0vw 0vw 2vw rgb(180, 180, 180);
+  text-decoration: none;
+  color: #000;
+}
+.imagenCard {
+  grid-row: 1/2;
+  background-color: rgb(187, 187, 187);
+  overflow: hidden;
+}
+.imagenCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.tituloCard {
+  grid-row: 2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c3c3c3;
+  color: rgb(0, 0, 0);
+  font-size: 1vw;
+  letter-spacing: 0.1vw;
+}
+.cardHover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 40;
+  transition: all 0.2s;
+  background-color: #000;
+  display: grid;
+  grid-template-rows: 13% 72% 15%;
+  grid-template-columns: 1fr;
+}
+.cardHoverTitle {
+  grid-row: 1/2;
+  background-color: #c3c3c3;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4vw;
+}
+
+.stockIdPrice {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1vw;
+  background-color: #c3c3c3;
+}
+.cardHoverPrice {
+  grid-row: 3/4;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  position: relative;
+}
+.cardHoverDescription {
+  grid-row: 2/3;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #c3c3c3;
+  text-align: center;
+}
+
+.cardHoverDescription h3 {
+  margin-top: 0.4vw;
+}
+.cardHoverDescription p {
+  text-align: start;
+  padding: 1vw 2vw 2vw 2vw;
+}
+.cardHover:hover {
+  opacity: 1;
+}
+
+.botonesPagina {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6vw;
+}
+.botonesPagina span {
+  color: rgb(255, 254, 254);
+  text-decoration: none;
+  font-size: 2vw;
+}
+.botonesPagina a {
+  color: rgb(255, 254, 254);
+  text-decoration: none;
+  font-size: 2vw;
+}

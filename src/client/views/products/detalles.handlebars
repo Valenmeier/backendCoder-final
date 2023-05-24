@@ -1,0 +1,32 @@
+{{#if error}}
+<div class="error">
+    <h5>{{error}}</h5>
+    
+</div>
+{{else}}
+<div class="contenedorDetalles">
+    <div class="capa"></div>
+    <div class="contenedorInformacion">
+        <img src="{{thumbnail}}" alt="">
+        <h3 class="tituloProducto">{{title}}</h3>
+    </div>
+    <div class="contenedorInformacion comprasContenedor">
+        <div class="descripcionProducto">
+            <h4>Descripción:</h4>
+            <p>{{description}}</p>
+        </div>
+        <div class="stock">
+            <h3>Stock= {{stock}}</h3>
+            <h3>Id= {{_id}}</h3>
+        </div>
+        <div class="botones">
+            <a href="" >
+                <button class="compraBoton" >Comprar</button>
+            </a>
+            <a href="">
+                <button  class="compraBoton">Agregar al carrito</button>
+            </a>
+        </div>
+    </div>
+</div>
+{{/if}}

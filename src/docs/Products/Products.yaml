@@ -1,0 +1,223 @@
+
+openapi: "3.0.0"
+info:
+  title: Desafío 15 - Backend
+  version: 1.0.0
+servers:
+  - url: "http://localhost:8080"
+paths:
+  /api/products:
+    get:
+      summary: Devuelve todos los productos
+      tags:
+        - products
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: number
+          description: Filtrar cantidad de productos recibidos en el payload
+        - in: query
+          name: query
+          description: filtrar por disponibilidad de productos, " agotado " si queremos productos agotados, " disponible " si queremos productos disponibles
+          schema:
+            type: string
+        - in: query
+          name: page
+          description: Página de la api que queremos visualizar, por defecto hay 2, se modifica en caso de agregar limit.
+          schema: 
+            type: number
+        - in: query
+          name: sort
+          description: Ordena los productos por precio, " asc " si queremos los más baratos primero, " desc " si queremos primero los más caros
+          schema: 
+            type: string
+      responses:
+        200:
+          description: Devuelve los productos
+        400:
+          description: Devuelve mensaje de error
+    post:
+      summary: Crea un nuevo producto
+      tags:
+        - products
+      parameters:
+        - in: header
+          name: token
+          schema:
+            type: String
+          description: Token del usuario
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Product"
+      responses:
+        200:
+          description: Creado correctamente    
+        400:
+          description: Petición incorrecta
+        401:
+          description: No autorizado para subir productos, solo usuarios premium y administradores.
+        409:
+          description: El producto ya existe
+  /api/products/{id}:
+    get:
+      summary: Devuelve un producto por ID
+      tags:
+        - products
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: ObjectId
+          required: true
+          description: ID del producto a obtener
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+        400:
+          description: Producto no encontrado
+    put:
+      summary: Actualiza un producto por ID
+      tags:
+        - products
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: ObjectId
+          required: true
+          description: ID del producto a actualizar
+        - in: header
+          name: token
+          schema:
+            type: String
+          description: Token del usuario
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateProduct"
+      responses:
+        200:
+          description: Producto actualizado correctamente
+        400:
+          description: Error en el proceso
+        401:
+          description: No autorizado, solo premium y administradores.
+        404:
+          description: Producto no encontrado
+    delete:
+      summary: Elimina un producto por ID
+      tags:
+        - products
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: ObjectId
+          required: true
+          description: ID del producto a eliminar
+        - in: header
+          name: token
+          schema:
+            type: String
+          description: Token del usuario
+          required: true
+      responses:
+        200:
+          description: Eliminado correctamente
+        401:
+          description: No autorizado para eliminar este producto
+        404:
+          description: Producto no encontrado
+components:
+  schemas:
+    Product:
+      tags:
+        - products
+      type: object
+      properties:
+        title:
+          type: string
+          description: Nombre del producto.
+        description:
+          type: string
+          description: Descripción del producto.
+        price:
+          type: number
+          description: Precio del producto.
+        code:
+          type: number
+      required:
+        - title
+        - price
+        - code
+      example:
+        title: "Laptop"
+        code: 650124
+        description: "Una laptop moderna y potente"
+        stock: 20
+        thumbnail: "Link de la imagen del producto"
+        status: true
+        price: 1200.00
+    UpdateProduct:
+      tags:
+        - products
+      type: object
+      properties:
+        title:
+          type: string
+          description: Nombre del producto.
+        description:
+          type: string
+          description: Descripción del producto.
+        price:
+          type: number
+          description: Precio del producto.
+        status:
+          type: boolean
+          description: Disponibilidad del producto.
+        stock:
+          type: number
+          description: cantidad del producto.
+        thumbnail:
+          type: string
+          description: Imagen del producto.
+      example:
+        title: "Laptop new name"
+
+  responses:
+    ProductNotFound:
+      description: El producto solicitado no existe.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Mensaje de error.
+
+    Products:
+      type: array
+      items:
+        $ref: "#/components/schemas/Product"
+
+  parameters:
+    productId:
+      name: id
+      in: path
+      required: true
+      description: Identificador único del producto.
+      schema:
+        type: ObjectId

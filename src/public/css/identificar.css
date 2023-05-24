@@ -1,0 +1,9 @@
+div{
+    width: 100vw;
+    height: 90vh;
+    background-color: rgb(7, 7, 7);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

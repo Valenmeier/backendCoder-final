@@ -1,0 +1,247 @@
+swagger: '2.0'
+info:
+  title: API para manejar carritos de compras
+  description: Este API permite crear, actualizar, eliminar y obtener información sobre carritos de compras.
+  version: 1.0.0
+
+
+paths:
+  /api/carts:
+    get:
+      summary: Obtener todos los carritos de compras
+      tags:
+        - cart
+      description: Obtiene una lista con todos los carritos de compras en el sistema.
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Cart'
+    post:
+      summary: Crear un nuevo carrito de compras
+      tags:
+        - cart
+      description: Crea un nuevo carrito de compras vacío.
+      responses:
+        200:
+          description: Created
+          schema:
+            $ref: '#/definitions/Cart'
+        400:
+          description: Error
+  /api/carts/{cid}:
+    get:
+      summary: Obtener información de un carrito de compras
+      tags:
+        - cart
+      description: Obtiene información detallada sobre un carrito de compras específico.
+      parameters:
+        - name: cid
+          in: path
+          description: ID del carrito de compras
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Cart'
+        400:
+          description: Error
+    put:
+      summary: Actualizar un producto en el carrito de compras
+      tags:
+        - cart
+      description: Actualiza la cantidad de un producto en el carrito de compras.
+      parameters:
+        - name: cid
+          in: path
+          description: ID del carrito de compras
+          required: true
+          type: integer
+          format: int64
+        - name: pid
+          in: path
+          description: ID del producto
+          required: true
+          type: integer
+          format: int64
+        - name: body
+          in: body
+          description: Información actualizada del producto
+          required: true
+          schema:
+            type: object
+            properties:
+              quantity:
+                type: integer
+                description: Nueva cantidad del producto en el carrito
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Cart'
+        400:
+          description: Error
+    delete:
+      summary: Eliminar un producto del carrito de compras
+      tags:
+        - cart
+      description: Elimina un producto específico del carrito de compras.
+      parameters:
+        - name: cid
+          in: path
+          description: ID del carrito de compras
+          required: true
+          type: integer
+          format: int64
+        - name: pid
+          in: path
+          description: ID del producto
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: eliminado correctamente
+        400:
+          description: ha ocurrido un error
+
+  /api/carts/{cid}/purchase:
+    post:
+      summary: Realizar una compra
+      tags:
+        - cart
+      description: Realiza una compra de los productos en el carrito de compras.
+      parameters:
+        - name: cid
+          in: path
+          description: ID del carrito de compras
+          required: true
+          type: integer
+          format: int64
+        - name: body
+          in: body
+          description: Información para la compra
+          required: true
+          schema:
+            type: object
+            properties:
+              payment_method:
+                type: string
+                description: Método de pago (por ejemplo, "tarjeta de crédito")
+              shipping_address:
+                type: string
+                description: Dirección de envío
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              order_id:
+                type: integer
+                description: ID de la orden de compra
+              message:
+                type: string
+                description: Mensaje de confirmación
+        400:
+          description: Error en el proceso de compra
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Mensaje de error
+        401:
+          description: No autorizado
+  /api/carts/{cid}/products/{pid}:
+    put:
+      summary: Actualizar un producto en el carrito de compras
+      tags:
+        - cart
+      description: Actualiza la cantidad de un producto en el carrito de compras.
+      parameters:
+        - name: cid
+          in: path
+          description: ID del carrito de compras
+          required: true
+          type: integer
+          format: int64
+        - name: pid
+          in: path
+          description: ID del producto
+          required: true
+          type: integer
+          format: int64
+        - name: body
+          in: body
+          description: Información actualizada del producto
+          required: true
+          schema:
+            type: object
+            properties:
+              quantity:
+                type: integer
+                description: Nueva cantidad del producto en el carrito
+      responses:
+        200:
+          description: Actualizado correctamente
+          schema:
+            $ref: '#/definitions/Cart'
+        400:
+          description: Fallo al actualizar
+    delete:
+      summary: Eliminar un producto del carrito de compras
+      tags:
+        - cart
+      description: Elimina un producto específico del carrito de compras.
+      parameters:
+        - name: cid
+          in: path
+          description: ID del carrito de compras
+          required: true
+          type: integer
+          format: int64
+        - name: pid
+          in: path
+          description: ID del producto
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Eliminado correctamente
+        400:
+          description: Error al actualizar
+definitions:
+  Cart:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: ID del carrito de compras
+      products:
+        type: array
+        description: Lista de productos en el carrito
+        items:
+          $ref: '#/definitions/CartProduct'
+
+  CartProduct:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: ID del producto
+      name:
+        type: string
+        description: Nombre del producto
+      price:
+        type: number
+        description: Precio del producto
+      quantity:
+        type: integer
+        description: Cantidad del producto en el carrito
