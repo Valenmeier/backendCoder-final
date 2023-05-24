@@ -4,7 +4,7 @@ info:
   title: Desafío 15 - Backend
   version: 1.0.0
 servers:
-  - url: "http://localhost:8080"
+  - url: "https://backendcoder-final-production.up.railway.app"
 paths:
   /api/products:
     get:
